@@ -13,7 +13,7 @@ import image5b from "../assets/images/5b.webp";
 
 import card from "../assets/images/card.webp";
 import sense from "../assets/images/sense.webp";
-
+import senseHub from "../assets/images/senseHub.webp";
 
 
 
@@ -38,9 +38,9 @@ export const PRODUCTS: Product[] = [
     name: "Wyze Cam Pan v3",
     description: "360° pan and 180° tilt security camera.",
     category: "CAMERAS",
-    price: 34.98,
-    originalPrice: 39.98,
-    savings: "Save 12%",
+    price: 23.99, // سعر القطعة الواحدة (كانت 47.98 لقطعتين في الصورة)
+    originalPrice: 28.99, 
+    savings: "Save 17%",
     imageUrl: image2,
     variants: [
       { id: "white", name: "White", imageUrl: image2 },
@@ -56,10 +56,10 @@ export const PRODUCTS: Product[] = [
     price: 69.98,
     originalPrice: 89.98,
     savings: "Save 22%",
-    imageUrl:image3,
+    imageUrl: image3,
     variants: [
       { id: "white", name: "White", imageUrl: image3 },
-      { id: "black", name: "Black", imageUrl: image3b},
+      { id: "black", name: "Black", imageUrl: image3b },
     ],
   },
   {
@@ -69,9 +69,8 @@ export const PRODUCTS: Product[] = [
     category: "CAMERAS",
     price: 69.98,
     originalPrice: 69.98,
-    imageUrl:image4,
-    variants: [ 
-],
+    imageUrl: image4,
+    variants: [],
   },
   {
     id: "cam5",
@@ -81,10 +80,10 @@ export const PRODUCTS: Product[] = [
     category: "CAMERAS",
     price: 89.98,
     originalPrice: 89.98,
-    imageUrl:image5,
+    imageUrl: image5,
     variants: [
-      { id: "white", name: "White",imageUrl: image5 },
-      { id: "black", name: "Black", imageUrl: image5b},
+      { id: "white", name: "White", imageUrl: image5 },
+      { id: "black", name: "Black", imageUrl: image5b },
     ],
   },
   {
@@ -101,11 +100,11 @@ export const PRODUCTS: Product[] = [
     name: "Wyze Sense Motion Sensor",
     description: "Detects motion in your home.",
     category: "SENSORS",
-    price: 19.99,
-    originalPrice: 24.99,
+    price: 29.99, // سعر القطعة الواحدة (كانت 59.98 لقطعتين)
+    originalPrice: 29.99,
+    imageUrl: sense, // تمت إضافة مسار الصورة الأساسي
     variants: [
-      { id: "white", name: "White", imageUrl:sense },
-      { id: "grey", name: "Grey",  imageUrl: "" },
+      { id: "white", name: "White", imageUrl: sense },
     ],
   },
   {
@@ -113,17 +112,19 @@ export const PRODUCTS: Product[] = [
     name: "Wyze Sense Hub (Required)",
     description: "Connects all your sensors.",
     category: "SENSORS",
-    price: 0,
-    originalPrice: 29.99,
-    variants: [{ id: "black", name: "Black", imageUrl: sense }],
+    price: 0, // تم تغيير "Free" إلى 0 لتفادي خطأ في الحسابات
+    originalPrice: 29.92,
+    imageUrl: senseHub,
+    variants: [{ id: "white", name: "White", imageUrl: senseHub }],
   },
   {
     id: "acc1",
     name: "Wyze MicroSD Card (256GB)",
     description: "Local storage for continuous recording.",
     category: "ACCESSORIES",
-    price: 41.96,
-    originalPrice: 41.96,
+    price: 20.98, // سعر القطعة الواحدة (كانت 41.96 لقطعتين)
+    originalPrice: 20.98,
+    imageUrl: card, // تمت إضافة مسار الصورة الأساسي
     variants: [
       { id: "black", name: "Black", imageUrl: card },
     ],

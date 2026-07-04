@@ -39,7 +39,10 @@ export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [cart, setCart] = useState<Record<string, number>>({});
 
-  useEffect(() => {
+useEffect(() => {
+    // ⚠️ بعد ما تفتح الموقع وتتأكد إن الخطة ظهرت، امسح السطر ده عشان السلة ترجع تحفظ الداتا صح
+    localStorage.removeItem("smarthome_cart");
+
     const saved = localStorage.getItem("smarthome_cart");
     if (saved) {
       try {
@@ -48,12 +51,14 @@ export default function App() {
         console.error("Failed to parse cart", e);
       }
     } else {
+      // السلة المبدئية شاملة المنتجات والخطة
       setCart({
-        "cam1::white": 1,
-        "cam2::black": 1,
-        "plan1::default": 1,
-        "sen1::white": 2,
-        "acc1::black": 1,
+        "cam1::white": 1,     // Wyze Cam v4
+        "cam2::black": 2,     // Wyze Cam Pan v3 
+        "sen1::white": 2,     // Wyze Sense Motion 
+        "sen2::white": 1,     // Wyze Sense Hub (FREE)
+        "acc1::black": 2,     // Wyze MicroSD 
+        "plan1::default": 1,  // ✨ ده السطر الخاص بخطة الـ Cam Unlimited ✨
       });
     }
     setIsLoaded(true);
@@ -106,7 +111,7 @@ export default function App() {
 
   if (!isLoaded) return null;
 
-  return (
+return (
     <div className="min-h-screen flex flex-col font-sans bg-white selection:bg-[#edf3ff] selection:text-[#583bb6]">
       <main className="flex-grow max-w-full xl:max-w-[1400px] mx-auto w-full px-3 sm:px-4 md:px-6 xl:px-8 py-8 md:py-12">
         {/*
@@ -116,9 +121,16 @@ export default function App() {
           - xl+ (large desktop): sidebar mode -> builder col-span-7, summary col-span-5 sticky. Cards 2 per row.
         */}
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-12">
+          
           {/* LEFT COLUMN: BUILDER */}
           <div className="xl:col-span-7 ">
             <div className="mb-8">
+              
+              {/* ✨ عنوان البداية - يظهر في الموبايل فقط ✨ */}
+              <h1 className="block md:hidden text-center text-[32px] font-bold text-gray-900 mb-6 mt-2">
+                Let's get started!
+              </h1>
+
               {STEPS.map((step, index) => {
                 const isActive = step.id === activeStep;
                 const distinctProductsCount = new Set(
@@ -130,43 +142,47 @@ export default function App() {
                 return (
                   <div
                     key={step.id}
-                    className={`${isActive ? "bg-[#edf3ff] rounded-2xl" : "bg-white"} ${isActive && index !== 0 ? "mt-2" : ""} ${isActive && index !== STEPS.length - 1 ? "mb-2" : ""}`}
+                    style={{ fontFamily: "GoogleSans, sans-serif" }}
+                    // خلينا الخلفية بيضاء للكل عشان الخطوط تظهر زي الصورة بالظبط
+                    className={`w-full bg-white ${isActive && index !== 0 ? "mt-2" : ""} ${isActive && index !== STEPS.length - 1 ? "mb-2" : ""}`}
                   >
                     {/* Header */}
                     <div
                       onClick={() => setActiveStep(isActive ? 0 : step.id)}
-                      className="cursor-pointer flex flex-col w-full border-b border-gray-200 pb-2"
+                      className="cursor-pointer flex flex-col w-full"
                     >
-                      <div className="px-4 pt-4 pb-1 border-b border-black">
-                        <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
-                          Step {step.id} of {STEPS.length}
+                      {/* ✨ شريط الـ STEP بالخطوط العلوية والسفلية ✨ */}
+                      <div className="w-full border-t border-b border-gray-300 py-2.5">
+                        <p className="px-4 text-[11px] text-gray-500 uppercase tracking-widest font-semibold">
+                          STEP {step.id} OF {STEPS.length}
                         </p>
                       </div>
 
-                      <div className="px-4 pb-2 pt-4 flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
+                      {/* عنوان الخطوة والأيقونات */}
+                      <div className="px-4 py-4 flex items-center justify-between">
+                        <div className="flex items-center space-x-4">
                           {getStepIcon(step.id)}
-                          <h3 className="text-xl font-bold text-gray-900">
+                          <h3 className="text-[19px] font-bold text-gray-900">
                             {step.title}
                           </h3>
                         </div>
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-2">
                           {distinctProductsCount > 0 && (
-                            <span className="text-[11px] font-bold text-[#583bb6]">
+                            <span className="text-[14px] font-medium text-[#583bb6]">
                               {distinctProductsCount} selected
                             </span>
                           )}
                           {isActive ? (
                             <ChevronUp
                               size={20}
-                              className="text-[#583bb6]"
-                              strokeWidth={3}
+                              className={distinctProductsCount > 0 ? "text-[#583bb6]" : "text-gray-400"}
+                              strokeWidth={2.5}
                             />
                           ) : (
                             <ChevronDown
                               size={20}
-                              className="text-[#583bb6]"
-                              strokeWidth={3}
+                              className={distinctProductsCount > 0 ? "text-[#583bb6]" : "text-gray-400"}
+                              strokeWidth={2.5}
                             />
                           )}
                         </div>
@@ -175,7 +191,7 @@ export default function App() {
 
                     {/* Content */}
                     {isActive && (
-                      <div className="px-2 pb-2 animate-in fade-in duration-300">
+                      <div className="px-3 pb-4 pt-2 bg-[#f8faff] animate-in fade-in duration-300 border-b border-gray-300">
                         {/* Product cards: 1-col mobile, 5-col tablet/laptop, 2-col large desktop */}
                         <div
                           className={`grid grid-cols-1 gap-3 mb-6 ${step.category === "CAMERAS" ? "sm:grid-cols-2 md:grid-cols-5 md:gap-1.5 lg:gap-2 xl:gap-4 xl:grid-cols-2" : "sm:grid-cols-2 md:gap-4"}`}
@@ -205,10 +221,10 @@ export default function App() {
                         </div>
 
                         {step.id < STEPS.length && (
-                          <div className="flex justify-center mt-6">
+                          <div className="flex justify-center mt-6 mb-2">
                             <button
                               onClick={() => setActiveStep(step.id + 1)}
-                              className="bg-transparent border border-[#583bb6] text-[#583bb6] hover:bg-white hover:text-purple-800 font-bold py-2 px-6 rounded-full text-sm transition-colors"
+                              className="bg-transparent border border-[#583bb6] text-[#583bb6] hover:bg-[#583bb6] hover:text-white font-bold py-2.5 px-8 rounded-full text-sm transition-colors"
                             >
                               Next: {STEPS[step.id].title}
                             </button>
@@ -223,13 +239,17 @@ export default function App() {
           </div>
 
           {/* RIGHT COLUMN: REVIEW PANEL */}
-          <div className="xl:col-span-5 xl:sticky xl:top-8 h-fit">
+          <div
+            className="xl:col-span-5 xl:sticky xl:top-8 h-fit"
+            style={{ fontFamily: "GoogleSans, sans-serif" }}
+          >
             <OrderSummary
               cartItems={cartItems}
               onUpdateQuantity={handleUpdateQuantity}
               onSaveLater={handleSaveLater}
             />
           </div>
+          
         </div>
       </main>
     </div>

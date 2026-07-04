@@ -43,56 +43,56 @@ The main focus of the project was:
 
 ### 1. Clone the repository
 
-```bash id="c1"
-git clone https://github.com/mohamed-magdy3/Task
-cd Task
-```
+    git clone https://github.com/mohamed-magdy3/Task
+    cd Task
 
 ### 2. Install dependencies
 
-```bash id="c2"
-npm install
-```
+    npm install
 
 ### 3. Run development server
 
-```bash id="c3"
-npm run dev
-```
+    npm run dev
 
 The application will be available at:
 
-```
-http://localhost:3000
-```
+    http://localhost:3000
 
 ---
 
 ## 🏗 Build for Production
 
-```bash id="c4"
-npm run build
-```
+    npm run build
 
 ### Preview production build
 
-```bash id="c5"
-npm run preview
-```
+    npm run preview
 
 ---
 
 ## 📁 Project Structure
 
-```
-src/
-├── components/
-├── data/
-├── App.tsx
-└── main.tsx
-
-assets/
-├── images/
+    ├── assets/
+    │   ├── .aistudio/
+    │   └── images/
+    ├── public/
+    │   └── fonts/                 # ProductSans custom fonts
+    ├── src/
+    │   ├── components/
+    │   │   ├── OrderSummary.tsx   # Checkout and pricing summary UI
+    │   │   └── ProductCard.tsx    # Individual product display component
+    │   ├── App.tsx                # Main application layout and state
+    │   ├── data.ts                # Static JSON data structure
+    │   ├── index.css              # Global styles and Tailwind imports
+    │   ├── main.tsx               # React entry point
+    │   └── types.ts               # TypeScript interfaces and types
+    ├── .gitignore
+    ├── index.html
+    ├── metadata.json
+    ├── package.json
+    ├── tailwind.config.js
+    ├── tsconfig.json
+    └── vite.config.ts
 
 ---
 
@@ -116,6 +116,7 @@ If more time was available, improvements would include:
 * The project has been tested after a clean clone to ensure it runs correctly
 * JSON data is included in the repository as required
 * The UI is fully responsive across different screen sizes
+* Custom fonts (Product Sans) have been integrated and applied across the UI
 
 ---
 

@@ -1,16 +1,13 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy-Regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'GoogleSans';
+  src: url('/fonts/ProductSans-Bold.ttf') format('truetype');
+  font-weight: 700; 
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'Gilroy';
-  src: url('/fonts/Gilroy-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-}
 
+body {
+  font-family: 'GoogleSans', sans-serif;
+}
