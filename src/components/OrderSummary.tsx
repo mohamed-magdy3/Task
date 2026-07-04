@@ -60,7 +60,7 @@ return (
       style={{ fontFamily: "GoogleSans, sans-serif" }}
     >
       <div className="flex flex-col md:flex-row xl:flex-col md:gap-8 lg:gap-12 xl:gap-0">
-        {/* ---------------- العمود الأيسر (تفاصيل المنتجات) ---------------- */}
+        {/* ---------------- LIFT COLUMN---------------- */}
         <div className="flex-1 min-w-0">
           {/* Header Section */}
           <div className="pb-6 mb-6 border-b border-gray-200">
@@ -173,8 +173,6 @@ return (
                             ) : (
                               <div className="w-[72px] hidden sm:block"></div>
                             )}
-
-                            {/* الأسعار: جنب بعض في التابلت، وتحت بعض في الموبايل والشاشات الكبيرة */}
                             <div className="text-right flex flex-col md:flex-row xl:flex-col items-end md:items-center xl:items-end justify-center min-w-[3.5rem] md:space-x-2 xl:space-x-0">
                               {item.product.originalPrice >
                                 item.product.price && (
@@ -223,9 +221,8 @@ return (
           </div>
         </div>
 
-        {/* ---------------- العمود الأيمن (الفوتر وزرار الدفع) ---------------- */}
+        {/* ---------------- RIGHT COLUMN---------------- */}
         <div className="w-full md:w-[380px] lg:w-[440px] xl:w-full flex-shrink-0 md:sticky xl:static md:top-8 h-fit mt-6 md:mt-0 xl:mt-6">
-          {/* غلاف للبادج والأسعار يتبدل حسب الشاشة */}
           <div className="flex justify-between items-end md:flex-col md:items-stretch xl:flex-row xl:justify-between xl:items-end mb-5 md:mb-8 xl:mb-5">
             {/* Guarantee Badge & Return Text */}
             <div className="flex items-center md:items-start xl:items-center md:gap-4 xl:gap-0">
@@ -236,7 +233,6 @@ return (
                   className="w-full h-full object-contain mix-blend-multiply"
                 />
               </div>
-              {/* نص الاسترجاع يظهر فقط في التابلت واللابتوب */}
               <div className="hidden md:flex xl:hidden flex-col pt-1">
                 <h4 className="text-[15px] font-bold text-gray-900 mb-1.5">
                   30-day hassle-free returns

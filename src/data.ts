@@ -38,7 +38,7 @@ export const PRODUCTS: Product[] = [
     name: "Wyze Cam Pan v3",
     description: "360° pan and 180° tilt security camera.",
     category: "CAMERAS",
-    price: 23.99, // سعر القطعة الواحدة (كانت 47.98 لقطعتين في الصورة)
+    price: 23.99,
     originalPrice: 28.99, 
     savings: "Save 17%",
     imageUrl: image2,
@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     name: "Wyze Sense Motion Sensor",
     description: "Detects motion in your home.",
     category: "SENSORS",
-    price: 29.99, // سعر القطعة الواحدة (كانت 59.98 لقطعتين)
+    price: 29.99, 
     originalPrice: 29.99,
     imageUrl: sense, // تمت إضافة مسار الصورة الأساسي
     variants: [
@@ -112,7 +112,7 @@ export const PRODUCTS: Product[] = [
     name: "Wyze Sense Hub (Required)",
     description: "Connects all your sensors.",
     category: "SENSORS",
-    price: 0, // تم تغيير "Free" إلى 0 لتفادي خطأ في الحسابات
+    price: 0, 
     originalPrice: 29.92,
     imageUrl: senseHub,
     variants: [{ id: "white", name: "White", imageUrl: senseHub }],
@@ -122,9 +122,9 @@ export const PRODUCTS: Product[] = [
     name: "Wyze MicroSD Card (256GB)",
     description: "Local storage for continuous recording.",
     category: "ACCESSORIES",
-    price: 20.98, // سعر القطعة الواحدة (كانت 41.96 لقطعتين)
+    price: 20.98, 
     originalPrice: 20.98,
-    imageUrl: card, // تمت إضافة مسار الصورة الأساسي
+    imageUrl: card, 
     variants: [
       { id: "black", name: "Black", imageUrl: card },
     ],
