@@ -1,68 +1,124 @@
 # Frontend Developer Technical Task
 
-This repository contains my solution for the Frontend Developer (React) technical assessment.
+This project is a React-based frontend application built as part of a technical assessment.
+It focuses on building a responsive UI using data from a JSON source, with clean structure and reusable components.
 
-## Tech Stack
+---
+
+## 🚀 Live Demo
+
+🔗 https://task-three-roan.vercel.app/
+
+---
+
+## 📦 Repository
+
+🔗 https://github.com/mohamed-magdy3/Task
+
+---
+
+## 🛠 Tech Stack
 
 * React
 * TypeScript
 * Vite
 * Tailwind CSS
+* JavaScript (ES6+)
 
-## Project Setup
+---
+
+## 📌 Project Overview
+
+This application displays and manages UI components based on structured JSON data.
+The main focus of the project was:
+
+* Building a clean and maintainable React architecture
+* Ensuring responsive and pixel-perfect UI implementation
+* Handling static JSON data effectively
+* Writing reusable components and structured code
+
+---
+
+## 📥 Setup Instructions
 
 ### 1. Clone the repository
 
-```bash
-git clone <repository-url>
-cd <repository-folder>
+```bash id="c1"
+git clone https://github.com/mohamed-magdy3/Task
+cd Task
 ```
 
 ### 2. Install dependencies
 
-```bash
+```bash id="c2"
 npm install
 ```
 
-### 3. Start the development server
+### 3. Run development server
 
-```bash
+```bash id="c3"
 npm run dev
 ```
 
 The application will be available at:
 
 ```
-http://localhost:5173
+http://localhost:3000
 ```
 
-## Production Build
+---
 
-```bash
+## 🏗 Build for Production
+
+```bash id="c4"
 npm run build
 ```
 
-To preview the production build:
+### Preview production build
 
-```bash
+```bash id="c5"
 npm run preview
 ```
 
-## Project Structure
+---
 
-* `src/` – React application source code
-* `public/` – Static assets
-* `data/` (if applicable) – JSON data used by the application
+## 📁 Project Structure
 
-## Notes
+```
+src/
+├── components/
+├── data/
+├── App.tsx
+└── main.tsx
 
-* The application was built with a focus on clean, maintainable, and reusable React components.
-* The UI is responsive and follows the provided design as closely as possible.
-* Static JSON data is included in the repository as requested.
-* No known issues at the time of submission.
+assets/
+├── images/
 
-## Tradeoffs / Decisions
+---
 
-* I prioritized clean component structure, readability, and maintainability.
-* I used reusable components where appropriate to keep the code organized and scalable.
-* If this were a production project, I would further enhance test coverage, accessibility, and performance optimization.
+## ⚖️ Decisions & Tradeoffs
+
+* Focused on clean and maintainable code rather than over-engineering features
+* Used reusable components to keep the structure scalable
+* Prioritized UI accuracy and responsiveness across devices
+* Kept state management simple since the project scope did not require complexity
+
+If more time was available, improvements would include:
+
+* Unit testing (Jest / React Testing Library)
+* Advanced performance optimizations
+* Enhanced accessibility improvements
+
+---
+
+## 📌 Notes
+
+* The project has been tested after a clean clone to ensure it runs correctly
+* JSON data is included in the repository as required
+* The UI is fully responsive across different screen sizes
+
+---
+
+## Thank You
+
+Thank you for reviewing my submission. I appreciate the opportunity and look forward to your feedback.
