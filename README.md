@@ -8,42 +8,41 @@ This repository contains my solution for the Frontend Developer (React) technica
 * TypeScript
 * Vite
 * Tailwind CSS
-* JavaScript (ES6+)
 
-## Features
+## Project Setup
 
-* Responsive layout
-* Pixel-perfect implementation based on the provided design
-* Reusable React components
-* Clean and maintainable code
-* Modern frontend development practices
+### 1. Clone the repository
 
-## Getting Started
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
 
-### Prerequisites
-
-* Node.js (v18 or later recommended)
-* npm
-
-### Installation
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### Run the Development Server
+### 3. Start the development server
 
 ```bash
 npm run dev
 ```
 
-### Build for Production
+The application will be available at:
+
+```
+http://localhost:5173
+```
+
+## Production Build
 
 ```bash
 npm run build
 ```
 
-### Preview the Production Build
+To preview the production build:
 
 ```bash
 npm run preview
@@ -51,18 +50,19 @@ npm run preview
 
 ## Project Structure
 
-```text
-src/
-├── components/
-├── assets/
-├── App.tsx
-└── main.tsx
-```
-
-> The folder structure may vary slightly depending on the implementation.
+* `src/` – React application source code
+* `public/` – Static assets
+* `data/` (if applicable) – JSON data used by the application
 
 ## Notes
 
-This project was completed as part of a Frontend Developer technical assessment. The focus was on writing clean, maintainable code while delivering a responsive and accurate implementation.
+* The application was built with a focus on clean, maintainable, and reusable React components.
+* The UI is responsive and follows the provided design as closely as possible.
+* Static JSON data is included in the repository as requested.
+* No known issues at the time of submission.
 
-Thank you for reviewing my submission.
+## Tradeoffs / Decisions
+
+* I prioritized clean component structure, readability, and maintainability.
+* I used reusable components where appropriate to keep the code organized and scalable.
+* If this were a production project, I would further enhance test coverage, accessibility, and performance optimization.
